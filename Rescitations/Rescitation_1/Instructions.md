@@ -1,9 +1,6 @@
 Pure Python Perceptron
 
-Download, install, run and study the pure python perceptron code (examples.py
-Download examples.py, perceptron.py
-
-Download perceptron.py)
+Download, install, run and study the pure python perceptron code (examples.py, perceptron.py)
 
 1. Similar to the given majority and xor examples, define 8 training examples to train a one-wire-not function which returns 1 if x1 is 0, 0 if x1 is 1. All other inputs with combinations of 1 and 0 on x2 and x3 do not change the output. Train 100 epochs with the activation function hyperbolic tangent. What happens to weights w2 and w3 and why?
 

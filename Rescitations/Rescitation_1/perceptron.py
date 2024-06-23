@@ -1,6 +1,6 @@
 import random
 import math
-from examples import xor, majority
+from examples import xor, majority, one_wire_not
 
 learning_rate = 0.01
 
@@ -67,4 +67,11 @@ def train(g, examples, initial_weight_distribution, epochs=100, print_weights=Fa
             update(grad, w)
         print(f"average loss {total_loss/len(examples):.4f} \n")
 
+print("Training majority with ReLU method")
 train(ReLU, majority,uniform_0_1,epochs=100,print_weights=False)
+print("Training one wire not with ReLU method")
+train(ReLU, one_wire_not,uniform_0_1,epochs=100,print_weights=False)
+print("Training one wire not with tanh method")
+train(tanh, one_wire_not,uniform_0_1,epochs=100,print_weights=False)
+print("Training majority with tanh method")
+train(tanh, majority,uniform_0_1,epochs=100,print_weights=False)
