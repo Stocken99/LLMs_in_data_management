@@ -1,8 +1,14 @@
+
+
 import random
 import math
+import torch
 from examples import xor, majority, one_wire_not
 
 learning_rate = 0.01
+
+
+
 
 def dot_prod(inputs,w):
     z = w[0]  # this is the bias
@@ -16,6 +22,12 @@ def ReLU(x,derivative = False):
     if x>=0:
         return 1
     return 0
+
+def step(x):
+    if x <= 0:
+        return 0
+    elif x > 0:
+        return 1
 
 def sigmoid(x,derivative = False):
     if not derivative:
@@ -67,11 +79,9 @@ def train(g, examples, initial_weight_distribution, epochs=100, print_weights=Fa
             update(grad, w)
         print(f"average loss {total_loss/len(examples):.4f} \n")
 
-print("Training majority with ReLU method")
 train(ReLU, majority,uniform_0_1,epochs=100,print_weights=False)
-print("Training one wire not with ReLU method")
-train(ReLU, one_wire_not,uniform_0_1,epochs=100,print_weights=False)
-print("Training one wire not with tanh method")
-train(tanh, one_wire_not,uniform_0_1,epochs=100,print_weights=False)
-print("Training majority with tanh method")
-train(tanh, majority,uniform_0_1,epochs=100,print_weights=False)
+#train(ReLU, majority,uniform_m1_p1,epochs=100,print_weights=False)
+#train(ReLU, majority,zeros,epochs=100,print_weights=False)
+#train(ReLU, one_wire_not,uniform_0_1,epochs=100,print_weights=False)
+#train(ReLU, one_wire_not,uniform_m1_p1,epochs=100,print_weights=False)
+#train(ReLU, one_wire_not,zeros,epochs=100,print_weights=False)
