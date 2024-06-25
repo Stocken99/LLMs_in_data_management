@@ -51,4 +51,4 @@ model = simple_neural_net()
 criterion = nn.MSELoss()
 optimizer = optim.SGD(model.parameters(), lr = perceptron.learning_rate)
 
-train(model, examples.majority, epochs=100, print_weights=False)
+train(model, examples.one_wire_not, epochs=100, print_weights=False)
