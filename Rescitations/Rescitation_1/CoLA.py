@@ -127,7 +127,7 @@ def evaluate():
         labels.to(device)
 
         outputs = model(batch)
-        predicted = torch.round(torch.sigmoid(outputs))#.squeeze() #_, predicted = torch.max(outputs, 1)
+        predicted = torch.round(torch.sigmoid(outputs))
         n_correct += (predicted == labels).sum().item()
 
         acc = n_correct / n_samples
